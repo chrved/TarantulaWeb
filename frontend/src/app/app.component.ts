@@ -8,19 +8,6 @@ import {first, map, tap} from 'rxjs/operators';
   styleUrls: ['./app.component.css'],
   providers: [HttpClient]
 })
-export class AppComponent implements OnInit{
-  title = 'frontend';
-  message = '';
+export class AppComponent {}
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
-    this.http.get('http://localhost:8080/api/tarantulas').pipe(
-      first(),
-      tap(result => console.log('Message received from the server: ', result)),
-      map(result => this.message = JSON.stringify(result))
-    ).subscribe();
-  }
-
-}
 
