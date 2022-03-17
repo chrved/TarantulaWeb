@@ -24,20 +24,26 @@
             <artifactId>frontend</artifactId>
             <version>${project.version}</version>
             <type>jar</type>
-            <!-- we add optional to work with the backend package without building the frontend -->
+            <!-- work with the backend package without building the frontend -->
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
-        <!-- This is used to document the API -->
-        <!--        <dependency>-->
-        <!--            <groupId>org.springdoc</groupId>-->
-        <!--            <artifactId>springdoc-openapi-ui</artifactId>-->
-        <!--            <version>1.5.13</version>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.6</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -48,6 +54,12 @@
                 <version>2.6.4</version>
                 <configuration>
                     <mainClass>chr.ved.tarantula.TarantulaApplication</mainClass>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>
