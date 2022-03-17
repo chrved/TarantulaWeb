@@ -2,7 +2,9 @@ package chr.ved.tarantula;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = {"${app.dev.frontend.local}"})
 @SpringBootApplication
 public class TarantulaApplication {
     public static void main(String[] args) {

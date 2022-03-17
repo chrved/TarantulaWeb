@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins =  {"${app.dev.frontend.local}"})
+@CrossOrigin(origins = {"${app.dev.frontend.local}"})
 @RestController
 @RequestMapping("/api/tarantulas")
 @RequiredArgsConstructor

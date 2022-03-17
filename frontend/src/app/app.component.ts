@@ -15,10 +15,10 @@ export class AppComponent implements OnInit{
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8080/message').pipe(
+    this.http.get('http://localhost:8080/api/tarantulas').pipe(
       first(),
       tap(result => console.log('Message received from the server: ', result)),
-      map(result => this.message = (result as any).message)
+      map(result => this.message = JSON.stringify(result))
     ).subscribe();
   }
 
