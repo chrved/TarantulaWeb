@@ -1,23 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {first, map, tap} from 'rxjs/operators';
+import { Component } from '@angular/core';
+
+import { Router } from '@angular/router';
 @Component({
   selector: 'main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit{
-   title = 'frontend';
-   message = '';
+export class MainComponent{
 
-   constructor(private http: HttpClient) { }
+   constructor(private router: Router) { }
 
-   ngOnInit(): void {
-     this.http.get('http://localhost:8080/api/tarantulas').pipe(
-       first(),
-       tap(result => console.log('Message received from the server: ', result)),
-       map(result => this.message = JSON.stringify(result))
-     ).subscribe();
+   onButtonClicked(where: string): void{
+    if(where === "wiki"){
+      this.router.navigateByUrl('/wiki')
+    } else if (where === "collection"){
+      this.router.navigateByUrl('/collection')
+    }
+
    }
 
 }

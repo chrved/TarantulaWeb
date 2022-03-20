@@ -1,1 +1,13 @@
-<p>collection works!</p>
+<h2>collection for Tarantulas</h2>
+<div class="container">
+  <ul class="list-group">
+    <li *ngFor="let t of tarantulas$ "
+    class="list-group-item">
+    <a routerLink="/collection/{{t.id}}" >
+        {{t.name + " " +t.id}}
+      </a>
+      </li>
+
+  </ul>
+  <!-- <a routerLink="/collection/{{t.id}}" > -->
+</div>

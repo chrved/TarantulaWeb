@@ -1,14 +1,13 @@
 <div class="container">
-  <h1>Springboot and Angular 13 with Bootstrap 5 </h1>
+
   <div class="row justify-content-center">
     <div class="col-2">
-      <button type="button" class="btn btn-primary">Collection</button>
+      <button type="button" class="btn btn-primary" (click)="onButtonClicked('collection')">Collection</button>
 
     </div>
     <div class="col-2">
-      <button type="button" class="btn btn-primary">Wiki</button>
+      <button type="button" class="btn btn-primary" (click)="onButtonClicked('wiki')">Wiki</button>
     </div>
 
   </div>
-    Message from server: {{message}}
 </div>
