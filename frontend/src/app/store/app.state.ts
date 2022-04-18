@@ -1,7 +1,6 @@
-import { Tarantula } from "../model/tarantula.model";
+import { TarantulaState } from "./tarantulas";
 
 
 export interface AppState {
-  tarantula: Array<Tarantula>;
-  active: Tarantula | null;
+  tarantulas: TarantulaState
 }

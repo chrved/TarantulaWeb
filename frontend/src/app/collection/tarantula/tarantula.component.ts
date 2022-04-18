@@ -2,10 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Tarantula } from '../../model/tarantula.model';
 import { Store } from '@ngrx/store';
-
-import { selectTarantulaById } from 'src/app/store/tarantula.selector';
-import { setActiveTarantulaAction } from 'src/app/store/tarantula.action';
-
+/*
+import { selectIsTarantulasLoaded, selectTarantulaById } from 'src/app/store/tarantula.selector';
+import { retrivedTarantulasAction, setActiveTarantulaAction, updateTarantulaAction } from 'src/app/store/tarantula.action';
+import { TarantulaService } from 'src/app/service/tarantula.service';
+import { Observable } from 'rxjs';
+*/
 @Component({
   selector: 'tarantula-item',
   templateUrl: './tarantula.component.html',
@@ -13,26 +15,47 @@ import { setActiveTarantulaAction } from 'src/app/store/tarantula.action';
 })
 
 export class TarantulaComponent implements OnInit {
-  tarantula: Tarantula = {
+  tarantula:any// Observable<Tarantula | undefined> = new Observable
+  /*
+   Tarantula = {
     id: '',
     name: '',
     dob: '',
     acquired: '',
     sex: ''
   };
-
+*/
   constructor(
     private route: ActivatedRoute,
-    private store: Store
-  ) {}
+    private store: Store,
 
+  ) {
+//     this.store.select(selectIsTarantulasLoaded).subscribe(isLoaded => {
+//       if(!isLoaded) {
+//         this.service.getTarantulas().subscribe(ts => {
+//           this.store.dispatch(retrivedTarantulasAction({tarantulas: Array.from(ts)}));
+//         });
+//       }
+//     })
+  }
+
+  onClick(){
+//     let newObj = {...this.tarantula}
+//     newObj.name = '999'
+//     this.store.dispatch(updateTarantulaAction({tarantula:newObj}))
+  }
   ngOnInit(): void {
-    let id = this.route.snapshot.paramMap.get('id') || "";
-    this.store.select(selectTarantulaById(id)).subscribe(t => {
-      if(t){
-        this.tarantula = t
-        this.store.dispatch(setActiveTarantulaAction({tarantula: this.tarantula }))
-      }
-    });
+//     this.setActive(this.route.snapshot.paramMap.get('id') || "");
+  }
+
+  setActive(id: string): void{
+//     this.tarantula = this.store.select(selectTarantulaById(id))
+//     .subscribe(t => {
+//       if(t){
+//         debugger
+//         this.tarantula = t
+//         this.store.dispatch(setActiveTarantulaAction({tarantula: this.tarantula }))
+//       }
+//     });
   }
 }

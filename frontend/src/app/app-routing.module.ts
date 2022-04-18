@@ -12,6 +12,7 @@ const routes: Routes = [
   {path : 'collection', component : CollectionComponent},
   {path : 'wiki', component : WikiComponent}
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

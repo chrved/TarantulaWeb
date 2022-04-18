@@ -10,7 +10,10 @@ import { WikiComponent } from './wiki/wiki.component';
 import { TarantulaComponent } from './collection/tarantula/tarantula.component';
 import { environment } from '../environments/environment'; // Angular CLI environment
 import { StoreModule } from '@ngrx/store';
-import { tarantulasReducer } from './store/tarantula.reducer';
+import { tarantulasReducer } from './store/tarantulas/tarantula.reducer';
+import {EffectsFeatureModule, EffectsModule} from "@ngrx/effects";
+import {TarantulaEffects} from "./store/tarantulas/tarantula.effect";
+//import { tarantulasReducer } from './store/tarantula/tarantula.reducer';
 
 
 @NgModule({
@@ -26,7 +29,7 @@ import { tarantulasReducer } from './store/tarantula.reducer';
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot({ tarantulaState: tarantulasReducer}),
-
+    EffectsModule.forRoot([TarantulaEffects]),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
